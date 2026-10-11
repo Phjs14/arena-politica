@@ -1,0 +1,5 @@
+Coloque aqui as fotos dos políticos usadas no quiz.
+- Formato: JPG ou WebP, quadradas (ex.: 400x400 px), rosto centralizado na parte de cima.
+- Nomes sugeridos: lula.jpg, flavio-bolsonaro.jpg ...
+- No banco, referencie como "/politicos/lula.jpg" (começa com barra, sem "public").
+- Use SOMENTE fotos com licença livre (Wikimedia Commons, Agência Brasil/Senado/Câmara com crédito) ou com autorização.
