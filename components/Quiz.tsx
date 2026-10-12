@@ -46,6 +46,7 @@ export default function Quiz() {
   const [chosen, setChosen] = useState<number | null>(null)
   const [result, setResult] = useState<AnswerResult | null>(null)
   const [checking, setChecking] = useState(false)
+  const [answerError, setAnswerError] = useState(false)
 
   const load = useCallback(async () => {
     setPhase('loading')
@@ -66,6 +67,7 @@ export default function Quiz() {
     if (chosen !== null || checking) return
     const q = questions[idx]
     setChosen(optionIndex)
+    setAnswerError(false)
     setChecking(true)
     try {
       const res = await fetch('/api/quiz/answer', {
@@ -79,6 +81,7 @@ export default function Quiz() {
       if (data.correct) setScore((s) => s + 1)
     } catch {
       setChosen(null)
+      setAnswerError(true)
     } finally {
       setChecking(false)
     }
@@ -166,6 +169,8 @@ export default function Quiz() {
                   )
                 })}
               </div>
+
+              {answerError && <p className="mt-3 text-sm text-amber-400">Não foi possível registrar sua resposta. Tente de novo em instantes.</p>}
 
               {result && (
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-5 rounded-xl border border-white/10 bg-black/30 p-4 text-sm">
