@@ -6,6 +6,7 @@ import { Check, ExternalLink, Loader2, RotateCcw, Trophy, X } from 'lucide-react
 import { getBrowserClient } from '@/lib/supabase/browser'
 import StoryShareButton from './StoryShare'
 import Avatar from './Avatar'
+import { track } from '@/lib/analytics'
 import type { AnswerResult, QuizQuestionPublic } from '@/lib/types'
 
 const QUIZ_SIZE = 5
@@ -88,7 +89,11 @@ export default function Quiz() {
   }
 
   function next() {
-    if (idx + 1 >= questions.length) { setPhase('finished'); return }
+    if (idx + 1 >= questions.length) {
+      track('quiz_complete', { score, total: questions.length })
+      setPhase('finished')
+      return
+    }
     setIdx((i) => i + 1)
     setChosen(null)
     setResult(null)

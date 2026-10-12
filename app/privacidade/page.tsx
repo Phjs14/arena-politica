@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import LegalShell, { H2, UL } from '@/components/LegalShell'
 import { SITE } from '@/lib/site'
+import ConsentReset from '@/components/ConsentReset'
 
 export const metadata: Metadata = {
   title: `Política de Privacidade — ${SITE.name}`,
@@ -31,21 +32,25 @@ export default function PrivacidadePage() {
         <li><strong className="text-white">Respostas do quiz:</strong> um identificador anônimo de sessão, as alternativas escolhidas e se acertou ou errou.</li>
         <li><strong className="text-white">Endereço IP:</strong> usado apenas de forma temporária para limitar abusos e votos automatizados. Ele não é gravado junto aos votos e é descartado em até 24 horas.</li>
         <li><strong className="text-white">Dados técnicos de acesso:</strong> registros gerados pela hospedagem (como data, página acessada e tipo de navegador), usados para segurança e estabilidade.</li>
+        <li><strong className="text-white">Estatísticas de uso (Google Analytics):</strong> somente se você aceitar, o Google Analytics registra de forma agregada as páginas acessadas, o tempo no site, o tipo de aparelho e de navegador, a região aproximada e ações como concluir o quiz ou compartilhar. Não enviamos ao Google o lado em que você votou nem as suas respostas individuais do quiz.</li>
       </UL>
 
       <H2>3. Cookies e armazenamento no seu navegador</H2>
       <UL>
         <li><strong className="text-white">Cookie “arena_vid” (necessário):</strong> identifica anonimamente o seu navegador para evitar votos repetidos. Dura até 1 ano.</li>
         <li><strong className="text-white">Armazenamento local:</strong> guardamos no seu navegador o estado escolhido, se você já votou, um código de sessão do quiz e a sua resposta ao aviso de cookies.</li>
+        <li><strong className="text-white">Cookies de estatística (Google Analytics):</strong> só são criados se você clicar em “Aceitar” no aviso de cookies. Se recusar, o Google Analytics não é carregado.</li>
         <li><strong className="text-white">Cookies de terceiros (publicidade):</strong> quando o site exibir anúncios, o Google e seus parceiros podem usar cookies para mostrar anúncios (veja a seção 6).</li>
       </UL>
       <p>Você pode apagar cookies e dados do site nas configurações do seu navegador. Isso pode fazer o site esquecer que você já votou.</p>
+      <div><ConsentReset /></div>
 
       <H2>4. Para que usamos os dados e em que base legal</H2>
       <UL>
         <li>Operar o duelo, o quiz e o mapa (execução do serviço que você solicitou ao usar o site).</li>
         <li>Prevenir fraudes, spam e votos automatizados (legítimo interesse e segurança).</li>
         <li>Gerar números agregados, como o total de votos por estado, sem identificar ninguém.</li>
+        <li>Entender como o site é usado para melhorá-lo, por meio de estatísticas (mediante o seu consentimento).</li>
         <li>Exibir anúncios, quando houver (consentimento, por meio do aviso de cookies e das ferramentas do Google).</li>
       </UL>
 
@@ -55,6 +60,7 @@ export default function PrivacidadePage() {
         <li><strong className="text-white">Supabase:</strong> banco de dados onde ficam votos, respostas e perguntas.</li>
         <li><strong className="text-white">Vercel:</strong> hospedagem do site.</li>
         <li><strong className="text-white">Upstash:</strong> contadores temporários usados para limitar abusos.</li>
+        <li><strong className="text-white">Google (Analytics):</strong> estatísticas de uso do site, somente se você aceitar os cookies.</li>
         <li><strong className="text-white">Google (AdSense):</strong> exibição de anúncios, quando ativada.</li>
       </UL>
       <p>
@@ -76,6 +82,7 @@ export default function PrivacidadePage() {
         <li>Votos e respostas do quiz: enquanto o serviço existir, de forma anônima e agregada.</li>
         <li>Endereço IP em contadores de segurança: até 24 horas.</li>
         <li>Cookie “arena_vid”: até 1 ano, ou até você apagá-lo.</li>
+        <li>Dados do Google Analytics: até 14 meses, conforme a retenção configurada em nossa conta.</li>
       </UL>
 
       <H2>8. Seus direitos</H2>

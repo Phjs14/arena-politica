@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react'
 import { Share2, Loader2 } from 'lucide-react'
 import { renderCardToBlob, shareStory, STORY_H, STORY_W } from '@/lib/story'
+import { track } from '@/lib/analytics'
 
 /** Conteúdo do card: parcial do Duelo ou resultado do Quiz. */
 export type StoryPayload =
@@ -101,6 +102,7 @@ export default function StoryShareButton({
         text,
         url: process.env.NEXT_PUBLIC_SITE_URL,
       })
+      track('share_story', { kind: payload.kind, outcome: out })
       if (out === 'downloaded') setNote('Imagem baixada! Poste no seu Story.')
     } catch (e) {
       console.error(e)

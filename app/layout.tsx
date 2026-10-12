@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import CookieNotice from '@/components/CookieNotice'
+import Analytics from '@/components/Analytics'
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' })
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${inter.className} arena-bg min-h-screen antialiased`}>
         {children}
         <CookieNotice />
+        <Analytics />
       </body>
     </html>
   )
