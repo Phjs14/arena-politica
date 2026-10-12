@@ -75,6 +75,11 @@ export default async function Home() {
       <footer className="py-10 text-center text-xs text-zinc-600">
         <p>Votos anônimos e não científicos — não representam pesquisa de opinião.</p>
         <p className="mt-1">Mapa: MapSVG (CC BY 4.0) via @svg-maps/brazil. Fotos: créditos conforme a licença de cada imagem.</p>
+        <nav className="mt-4 flex justify-center gap-5 text-sm font-semibold text-zinc-500">
+          <a href="/sobre" className="hover:text-white">Sobre</a>
+          <a href="/privacidade" className="hover:text-white">Privacidade</a>
+          <a href="/contato" className="hover:text-white">Contato</a>
+        </nav>
       </footer>
     </>
   )
